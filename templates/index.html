@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Movie Recommender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0f;
+            color: #e8e0d0;
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            color: #f5c842;
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        p {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        .card {
+            background: #111118;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+        h2 { color: #f5c842; margin-bottom: 16px; }
+        select, input {
+            width: 100%;
+            padding: 10px 14px;
+            background: #1a1a2a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: #e8e0d0;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #f5c842;
+            color: #0a0a0f;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background: #ffd700; }
+    </style>
+</head>
+<body>
+    <h1>🎬 CineMatch</h1>
+    <p>Your personal movie recommendation system</p>
+
+    <!-- Recommend by Genre -->
+    <div class="card">
+        <h2>Find by Genre</h2>
+        <form action="/by-genre" method="POST">
+            <select name="genre">
+                <option value="action">Action</option>
+                <option value="comedy">Comedy</option>
+                <option value="drama">Drama</option>
+                <option value="horror">Horror</option>
+                <option value="romance">Romance</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="thriller">Thriller</option>
+                <option value="animation">Animation</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="mystery">Mystery</option>
+            </select>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+
+    <!-- Recommend by Liked Movie -->
+    <div class="card">
+        <h2>Find by Movie You Like</h2>
+        <form action="/by-movie" method="POST">
+            <input 
+                type="text" 
+                name="movie_title" 
+                placeholder="e.g. Inception, The Dark Knight..."
+                required
+            />
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>
